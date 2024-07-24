@@ -10019,8 +10019,17 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.bot_component_people' or $source_tablename eq 'public.bot_delay_component_details' or $source_tablename eq 'public.bot_sub_components') {
+                elsif($source_tablename eq 'public.bot_component_people' or $source_tablename eq 'public.bot_sub_components') {
                     $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.bot_components t2 ON t1.bot_component_id = t2.id WHERE t2.project_id=3855 %s) TO STDOUT%s',
+                    $self->{sqlprefix},
+                    $SELECT,
+                    $source_tablename,
+                    $mode eq 'fullcopy' ? '' : " AND t1.$Table->{pklist} = ANY(?)",
+                    $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
+                }
+
+                elsif($source_tablename eq 'public.bot_delay_component_details') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.bot_components t2 ON t1.component_id = t2.id WHERE t2.project_id=3855 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,

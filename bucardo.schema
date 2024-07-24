@@ -2696,6 +2696,37 @@ FOR EACH ROW EXECUTE PROCEDURE bucardo.bucardo_delta_names_helper();
               };
         }
 
+        elsif($table eq 'bot_delay_component_details') {
+        	$SQL = qq{
+                CREATE OR REPLACE FUNCTION bucardo.$deltafunc()
+                RETURNS TRIGGER
+                LANGUAGE plpgsql
+                SECURITY DEFINER
+                VOLATILE
+                AS
+                \$clone\$
+        	DECLARE
+        		proj_id_var int;
+                BEGIN
+        	      SELECT project_id INTO proj_id_var FROM public.bot_components WHERE id IN (NEW.component_id, OLD.component_id) AND project_id = $project_id_var LIMIT 1;
+                IF(proj_id_var IS NOT NULL AND proj_id_var = $project_id_var) THEN
+                  IF (TG_OP = 'INSERT') THEN
+                    INSERT INTO bucardo.$delta_table VALUES ($new);
+                  ELSIF (TG_OP = 'UPDATE') THEN
+                    INSERT INTO bucardo.$delta_table VALUES ($old);
+                    IF ($clause) THEN
+                      INSERT INTO bucardo.$delta_table VALUES ($new);
+                    END IF;
+                  ELSE
+                    INSERT INTO bucardo.$delta_table VALUES ($old);
+                  END IF;
+                END IF;
+                RETURN NULL;
+                END;
+                \$clone\$;
+              };
+        }
+
         ## Double level joins table if condition (where the association is with campaigns table)
 
         elsif($table eq 'campaigns_people') {
