@@ -10310,7 +10310,7 @@ sub push_rows {
                 ## Three Level copy logics
 
                 elsif($source_tablename eq 'public.choices') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.questions t2 ON t1.question_id = t2.id INNER JOIN publi.cbots t3 ON t2.bot_id = t3.id WHERE t3.project_id=3855 %s) TO STDOUT%s',
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.questions t2 ON t1.question_id = t2.id INNER JOIN public.bots t3 ON t2.bot_id = t3.id WHERE t3.project_id=3855 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
