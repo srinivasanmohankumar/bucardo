@@ -3863,8 +3863,10 @@ FOR EACH ROW EXECUTE PROCEDURE bucardo.bucardo_delta_names_helper();
                 \$clone\$
           DECLARE
             secretkey_match bool;
+            secretkey_match_del bool;
                 BEGIN
           SELECT NEW.name ILIKE '%project_ockss3pj%' INTO secretkey_match;
+          SELECT OLD.name ILIKE '%project_ockss3pj%' INTO secretkey_match;
                 IF(secretkey_match) THEN
                   IF (TG_OP = 'INSERT') THEN
                     INSERT INTO bucardo.$delta_table VALUES ($new);
