@@ -3027,7 +3027,7 @@ FOR EACH ROW EXECUTE PROCEDURE bucardo.bucardo_delta_names_helper();
 
         ## Double level joins table if condition (where the association is with mail_filters table)
 
-        elsif($table eq 'failed_messages' or $table eq 'mail_filters_links' or $table eq 'mail_filters_people' or $table eq 'person_email_opens') {
+        elsif($table eq 'failed_messages' or $table eq 'mail_filters_links' or $table eq 'mail_filters_people' or $table eq 'person_email_opens' or $table eq 'clicked_links') {
         	$SQL = qq{
                 CREATE OR REPLACE FUNCTION bucardo.$deltafunc()
                 RETURNS TRIGGER
