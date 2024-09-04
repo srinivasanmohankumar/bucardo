@@ -10137,15 +10137,6 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.conversation_property_options') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.conversation_properties t2 ON t1.conversation_property_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
-                    $self->{sqlprefix},
-                    $SELECT,
-                    $source_tablename,
-                    $mode eq 'fullcopy' ? '' : " AND t1.$Table->{pklist} = ANY(?)",
-                    $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
-                }
-
                 elsif($source_tablename eq 'public.deal_notes') {
                     $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.deals t2 ON t1.deal_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
@@ -10155,7 +10146,7 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.deal_notes' or $source_tablename eq 'public.deals_people') {
+                elsif($source_tablename eq 'public.deals_people') {
                     $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.deals t2 ON t1.deal_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
@@ -10301,15 +10292,6 @@ sub push_rows {
 
                 elsif($source_tablename eq 'public.stages') {
                     $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.pipelines t2 ON t1.pipeline_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
-                    $self->{sqlprefix},
-                    $SELECT,
-                    $source_tablename,
-                    $mode eq 'fullcopy' ? '' : " AND t1.$Table->{pklist} = ANY(?)",
-                    $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
-                }
-
-                elsif($source_tablename eq 'public.support_bot_analytics_sources') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.support_bot_analytics t2 ON t1.support_bot_analytics_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
