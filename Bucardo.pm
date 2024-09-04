@@ -9989,7 +9989,7 @@ sub push_rows {
 
             ## If we are doing a small batch of single primary keys, use ANY
             ## For a fullcopy mode, leave the WHERE clause out completely
-            my @single_table_list = ('public.addon_coupons', 'public.ahoy_messages', 'public.app_credentials', 'public.article_feedbacks', 'public.articles', 'public.articles_copy', 'public.assignment_rule_triggers', 'public.assignment_rules', 'public.automation_coupons', 'public.automation_rules', 'public.billings', 'public.blacklisted_emails', 'public.blocked_ips', 'public.blocked_people', 'public.bot_components', 'public.bot_priorities', 'public.bot_templates', 'public.bots', 'public.bounced_emails', 'public.bulk_imports', 'public.campaigns', 'public.cards_projects', 'public.categories', 'public.charges', 'public.chat_tags', 'public.companies', 'public.company_properties', 'public.conversation_metrics', 'public.conversation_properties', 'public.conversation_replies_metrics', 'public.conversations', 'public.coupons', 'public.custom_email_templates', 'public.custom_invoices', 'public.custom_team_mates', 'public.deal_properties', 'public.deals', 'public.default_settings', 'public.deleted_people', 'public.domains', 'public.ecommerce_carts', 'public.ecommerce_categories', 'public.ecommerce_checkouts', 'public.ecommerce_customers', 'public.ecommerce_orders', 'public.ecommerce_products', 'public.ecommerce_stores', 'public.email_blocking_histories', 'public.email_coupons', 'public.embedding_vectors', 'public.emma_raw_sources', 'public.emma_source_items', 'public.event_categories', 'public.events', 'public.exports', 'public.fb_integrations', 'public.feature_tags', 'public.folders', 'public.form_data', 'public.forms', 'public.gist_webhooks', 'public.imports', 'public.inbound_email_addresses', 'public.inbox_views', 'public.integrated_apps', 'public.integration_data', 'public.invites', 'public.kb_themes', 'public.knowledgebase_migrations', 'public.knowledgebase_settings', 'public.launch_urls', 'public.live_people', 'public.mail_filters', 'public.mail_subscriptions', 'public.meeting_links', 'public.meetings', 'public.message_goals', 'public.open_ai_data', 'public.page_visit_urls', 'public.people', 'public.people_keys', 'public.people_notes', 'public.pipelines', 'public.project_low_priorities', 'public.project_roles', 'public.project_subscription_histories', 'public.project_subscription_plans', 'public.projects_developer_apps', 'public.property_categories', 'public.satisfaction_ratings', 'public.saved_replies', 'public.segments', 'public.settings', 'public.setup_guides', 'public.snippet_categories', 'public.soft_bounced_emails', 'public.spam_emails', 'public.subscription_bills', 'public.support_bot_analytics', 'public.survey_themes', 'public.surveys', 'public.tags', 'public.tasks', 'public.teams', 'public.temp_embedding_vectors', 'public.tours', 'public.triggered_chats', 'public.triggers', 'public.ultimate_plan_coupons', 'public.unanswered_questions', 'public.users', 'public.users_profiles', 'public.users_projects', 'public.users_projects_roles', 'public.webhook_subscriptions', 'public.webhooks', 'public.workflow_templates', 'public.workflow_templates_users', 'public.workflows', 'public.scheduled_meetings','public.crm_emails','public.deal_and_company_activities');
+            my @single_table_list = ('public.addon_coupons', 'shared.ahoy_messages', 'shared.app_credentials', 'shared.article_feedbacks', 'shared.articles', 'public.articles_copy', 'shared.assignment_rule_triggers', 'shared.assignment_rules', 'public.automation_coupons', 'shared.automation_rules', 'shared.billings', 'shared.blacklisted_emails', 'shared.blocked_ips', 'shared.blocked_people', 'shared.bot_components', 'shared.bot_priorities', 'public.bot_templates', 'shared.bots', 'public.bounced_emails', 'shared.bulk_imports', 'shared.campaigns', 'shared.cards_projects', 'shared.categories', 'public.charges', 'shared.chat_tags', 'shared.companies', 'shared.company_properties', 'shared.conversation_metrics', 'shared.conversation_properties', 'shared.conversation_replies_metrics', 'shared.conversations', 'public.coupons', 'shared.custom_email_templates', 'public.custom_invoices', 'shared.custom_team_mates', 'shared.deal_properties', 'shared.deals', 'public.default_settings', 'shared.deleted_people', 'shared.domains', 'shared.ecommerce_carts', 'shared.ecommerce_categories', 'shared.ecommerce_checkouts', 'shared.ecommerce_customers', 'shared.ecommerce_orders', 'shared.ecommerce_products', 'shared.ecommerce_stores', 'public.email_blocking_histories', 'public.email_coupons', 'shared.embedding_vectors', 'shared.emma_raw_sources', 'shared.emma_source_items', 'shared.event_categories', 'shared.events', 'shared.exports', 'public.fb_integrations', 'shared.feature_tags', 'public.folders', 'shared.form_data', 'shared.forms', 'shared.gist_webhooks', 'shared.imports', 'shared.inbound_email_addresses', 'shared.inbox_views', 'public.integrated_apps', 'shared.integration_data', 'public.invites', 'public.kb_themes', 'shared.knowledgebase_migrations', 'public.knowledgebase_settings', 'shared.launch_urls', 'shared.live_people', 'shared.mail_filters', 'shared.mail_subscriptions', 'shared.meeting_links', 'public.meetings', 'shared.message_goals', 'public.open_ai_data', 'shared.page_visit_urls', 'shared.people', 'public.people_keys', 'shared.people_notes', 'shared.pipelines', 'shared.project_low_priorities', 'shared.project_roles', 'shared.project_subscription_histories', 'public.project_subscription_plans', 'public.projects_developer_apps', 'shared.property_categories', 'shared.satisfaction_ratings', 'shared.saved_replies', 'shared.segments', 'public.settings', 'shared.setup_guides', 'shared.snippet_categories', 'shared.soft_bounced_emails', 'shared.spam_emails', 'public.subscription_bills', 'shared.support_bot_analytics', 'shared.survey_themes', 'shared.surveys', 'shared.tags', 'public.tasks', 'shared.teams', 'public.temp_embedding_vectors', 'shared.tours', 'shared.triggered_chats', 'public.triggers', 'public.ultimate_plan_coupons', 'shared.unanswered_questions', 'public.users', 'public.users_profiles', 'public.users_projects', 'shared.users_projects_roles', 'shared.webhook_subscriptions', 'shared.webhooks', 'public.workflow_templates', 'shared.workflow_templates_users', 'shared.workflows', 'shared.scheduled_meetings','shared.crm_emails','shared.deal_and_company_activities');
 
             my %hash1 = map { $_ => 1 } @single_table_list;
 
@@ -10020,8 +10020,8 @@ sub push_rows {
 
                 ##Two Level joins initial copy logics
 
-                elsif($source_tablename eq 'public.activities' or $source_tablename eq 'public.people_identifiers' or $source_tablename eq 'public.people_scheduled_meetings' or $source_tablename eq 'public.workflow_component_people') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.people t2 ON t1.person_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.activities' or $source_tablename eq 'shared.people_identifiers' or $source_tablename eq 'shared.people_scheduled_meetings' or $source_tablename eq 'shared.workflow_component_people') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.people t2 ON t1.person_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10029,8 +10029,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.article_page_visits') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.articles t2 ON t1.article_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.article_page_visits') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.articles t2 ON t1.article_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10038,8 +10038,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.articles_categories') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.categories t2 ON t1.category_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.articles_categories') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.categories t2 ON t1.category_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10047,8 +10047,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.assignment_rule_actions' or $source_tablename eq 'public.assignment_rule_conditions') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.assignment_rules t2 ON t1.assignment_rule_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.assignment_rule_actions' or $source_tablename eq 'public.assignment_rule_conditions') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.assignment_rules t2 ON t1.assignment_rule_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10056,8 +10056,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
                 
-                elsif($source_tablename eq 'public.automation_rule_actions' or $source_tablename eq 'public.automation_rule_people' or $source_tablename eq 'public.automation_rule_triggers') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.automation_rules t2 ON t1.automation_rule_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.automation_rule_actions' or $source_tablename eq 'shared.automation_rule_people' or $source_tablename eq 'shared.automation_rule_triggers') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.automation_rules t2 ON t1.automation_rule_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10074,8 +10074,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.messages_users') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.messages t2 ON t1.message_id = t2.id INNER JOIN public.conversations t3 ON t2.conversation_identifier = t3.conversation_identifier WHERE t3.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.messages_users') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.messages t2 ON t1.message_id = t2.id INNER JOIN shared.conversations t3 ON t2.conversation_identifier = t3.conversation_identifier WHERE t3.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10083,8 +10083,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.bot_component_people' or $source_tablename eq 'public.bot_sub_components') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.bot_components t2 ON t1.bot_component_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.bot_component_people' or $source_tablename eq 'shared.bot_sub_components') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.bot_components t2 ON t1.bot_component_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10092,8 +10092,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.bot_delay_component_details') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.bot_components t2 ON t1.component_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.bot_delay_component_details') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.bot_components t2 ON t1.component_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10101,8 +10101,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.campaigns_people') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.campaigns t2 ON t1.campaign_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.campaigns_people') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.campaigns t2 ON t1.campaign_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10110,8 +10110,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.chat_tags_messages' or $source_tablename eq 'public.conversation_message_tags') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.chat_tags t2 ON t1.chat_tag_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.chat_tags_messages' or $source_tablename eq 'shared.conversation_message_tags') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.chat_tags t2 ON t1.chat_tag_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10119,8 +10119,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.company_notes') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.companies t2 ON t1.company_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.company_notes') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.companies t2 ON t1.company_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10128,8 +10128,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.conversation_property_options') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.conversation_properties t2 ON t1.conversation_property_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.conversation_property_options') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.conversation_properties t2 ON t1.conversation_property_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10137,8 +10137,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.conversation_property_options') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.conversation_properties t2 ON t1.conversation_property_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.conversation_property_options') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.conversation_properties t2 ON t1.conversation_property_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10146,8 +10146,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.deal_notes') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.deals t2 ON t1.deal_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.deal_notes') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.deals t2 ON t1.deal_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10155,8 +10155,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.deal_notes' or $source_tablename eq 'public.deals_people') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.deals t2 ON t1.deal_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.deal_notes' or $source_tablename eq 'shared.deals_people') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.deals t2 ON t1.deal_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10164,7 +10164,7 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.email_accounts') {
+                elsif($source_tablename eq 'shared.email_accounts') {
                     $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.users_projects t2 ON t1.users_project_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
@@ -10182,8 +10182,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.event_data_events') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.events t2 ON t1.event_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.event_data_events') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.events t2 ON t1.event_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10191,8 +10191,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.failed_messages' or $source_tablename eq 'public.mail_filters_links' or $source_tablename eq 'public.mail_filters_people' or $source_tablename eq 'public.person_email_opens' or $source_tablename eq 'public.clicked_links') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.mail_filters t2 ON t1.mail_filter_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.failed_messages' or $source_tablename eq 'shared.mail_filters_links' or $source_tablename eq 'shared.mail_filters_people' or $source_tablename eq 'shared.person_email_opens' or $source_tablename eq 'shared.clicked_links') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.mail_filters t2 ON t1.mail_filter_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10200,8 +10200,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.features_tags') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.feature_tags t2 ON t1.feature_tag_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.features_tags') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.feature_tags t2 ON t1.feature_tag_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10209,8 +10209,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.goal_tags' or $source_tablename eq 'public.people_tags') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.tags t2 ON t1.tag_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'public.goal_tags' or $source_tablename eq 'shared.people_tags') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.tags t2 ON t1.tag_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10218,8 +10218,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.goals' or $source_tablename eq 'public.questions') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.bots t2 ON t1.bot_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'public.goals' or $source_tablename eq 'shared.questions') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.bots t2 ON t1.bot_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10227,8 +10227,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.mail_subscriptions_entities' or $source_tablename eq 'public.mail_subscriptions_people') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.mail_subscriptions t2 ON t1.mail_subscription_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.mail_subscriptions_entities' or $source_tablename eq 'shared.mail_subscriptions_people') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.mail_subscriptions t2 ON t1.mail_subscription_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10236,8 +10236,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.message_goals_people') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.message_goals t2 ON t1.message_goal_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.message_goals_people') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.message_goals t2 ON t1.message_goal_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10245,8 +10245,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.messages') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.conversations t2 ON t1.conversation_identifier = t2.conversation_identifier WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.messages') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.conversations t2 ON t1.conversation_identifier = t2.conversation_identifier WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10254,8 +10254,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.people_segments') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.segments t2 ON t1.segment_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.people_segments') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.segments t2 ON t1.segment_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10263,8 +10263,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.pg_search_documents') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.articles t2 ON t1.searchable_id = t2.id AND t1.searchable_type = \'Article\' WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.pg_search_documents') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.articles t2 ON t1.searchable_id = t2.id AND t1.searchable_type = \'Article\' WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10272,8 +10272,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.product_categories') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.ecommerce_categories t2 ON t1.ecommerce_category_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.product_categories') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.ecommerce_categories t2 ON t1.ecommerce_category_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10281,7 +10281,7 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.rollups') {
+                elsif($source_tablename eq 'shared.rollups') {
                     $srccmd = sprintf "%sCOPY (%s FROM ONLY %s t1 WHERE name ILIKE '%%project_4rtjrhbh%%' %s) TO STDOUT%s",
                     $self->{sqlprefix},
                     $SELECT,
@@ -10290,8 +10290,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.scheduled_meetings_users') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.scheduled_meetings t2 ON t1.scheduled_meeting_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.scheduled_meetings_users') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.scheduled_meetings t2 ON t1.scheduled_meeting_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10299,8 +10299,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.stages') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.pipelines t2 ON t1.pipeline_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.stages') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.pipelines t2 ON t1.pipeline_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10308,8 +10308,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.support_bot_analytics_sources') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.support_bot_analytics t2 ON t1.support_bot_analytics_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.support_bot_analytics_sources') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.support_bot_analytics t2 ON t1.support_bot_analytics_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10317,8 +10317,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.support_bot_analytics_sources') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.support_bot_analytics t2 ON t1.support_bot_analytics_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.support_bot_analytics_sources') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.support_bot_analytics t2 ON t1.support_bot_analytics_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10326,8 +10326,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.survey_responses') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.surveys t2 ON t1.survey_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.survey_responses') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.surveys t2 ON t1.survey_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10335,8 +10335,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.teams_users') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.teams t2 ON t1.team_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.teams_users') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.teams t2 ON t1.team_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10344,8 +10344,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.tour_views') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.tours t2 ON t1.tour_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.tour_views') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.tours t2 ON t1.tour_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10353,8 +10353,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.triggered_chat_pending_people') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.triggered_chats t2 ON t1.triggered_chat_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.triggered_chat_pending_people') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.triggered_chats t2 ON t1.triggered_chat_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10362,8 +10362,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.workflow_components' or $source_tablename eq 'public.workflow_people') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.workflows t2 ON t1.workflow_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.workflow_components' or $source_tablename eq 'shared.workflow_people') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.workflows t2 ON t1.workflow_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10373,8 +10373,8 @@ sub push_rows {
 
                 ## Three Level copy logics
 
-                elsif($source_tablename eq 'public.choices') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.questions t2 ON t1.question_id = t2.id INNER JOIN public.bots t3 ON t2.bot_id = t3.id WHERE t3.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.choices') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.questions t2 ON t1.question_id = t2.id INNER JOIN shared.bots t3 ON t2.bot_id = t3.id WHERE t3.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10382,8 +10382,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.company_notes_people') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.company_notes t2 ON t1.company_note_id = t2.id INNER JOIN public.companies t3 ON t2.company_id = t3.id WHERE t3.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.company_notes_people') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.company_notes t2 ON t1.company_note_id = t2.id INNER JOIN shared.companies t3 ON t2.company_id = t3.id WHERE t3.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10393,8 +10393,8 @@ sub push_rows {
 
                 ## Two Level logic 
 
-                elsif($source_tablename eq 'public.crm_emails_people') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.crm_emails t2 ON t1.crm_email_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.crm_emails_people') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.crm_emails t2 ON t1.crm_email_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10402,8 +10402,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.deal_notes_people') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.deal_notes t2 ON t1.deal_note_id = t2.id INNER JOIN public.deals t3 ON t2.deal_id = t3.id WHERE t3.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.deal_notes_people') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.deal_notes t2 ON t1.deal_note_id = t2.id INNER JOIN shared.deals t3 ON t2.deal_id = t3.id WHERE t3.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10411,7 +10411,7 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.invoice_refund_histories') {
+                elsif($source_tablename eq 'shared.invoice_refund_histories') {
                     $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.charges t2 ON t1.charge_id = t2.id WHERE t2.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
@@ -10420,8 +10420,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.message_embeddings') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.messages t2 ON t1.message_id = t2.id INNER JOIN public.conversations t3 ON t2.conversation_identifier = t3.conversation_identifier WHERE t3.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.message_embeddings') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.messages t2 ON t1.message_id = t2.id INNER JOIN shared.conversations t3 ON t2.conversation_identifier = t3.conversation_identifier WHERE t3.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10429,8 +10429,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.responses') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.questions t2 ON t1.question_id = t2.id INNER JOIN public.bots t3 ON t2.bot_id = t3.id WHERE t3.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.responses') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.questions t2 ON t1.question_id = t2.id INNER JOIN shared.bots t3 ON t2.bot_id = t3.id WHERE t3.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
@@ -10438,8 +10438,8 @@ sub push_rows {
                     $Sync->{copyextra} ? " $Sync->{copyextra}" : '';
                 }
 
-                elsif($source_tablename eq 'public.sessions') {
-                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN public.people_identifiers t2 ON t1.people_identifier_id = t2.id INNER JOIN public.people t3 ON t2.person_id = t3.id WHERE t3.project_id=2 %s) TO STDOUT%s',
+                elsif($source_tablename eq 'shared.sessions') {
+                    $srccmd = sprintf '%sCOPY (%s FROM ONLY %s t1 INNER JOIN shared.people_identifiers t2 ON t1.people_identifier_id = t2.id INNER JOIN shared.people t3 ON t2.person_id = t3.id WHERE t3.project_id=2 %s) TO STDOUT%s',
                     $self->{sqlprefix},
                     $SELECT,
                     $source_tablename,
