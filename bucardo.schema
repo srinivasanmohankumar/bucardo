@@ -3798,7 +3798,7 @@ FOR EACH ROW EXECUTE PROCEDURE bucardo.bucardo_delta_names_helper();
         	DECLARE
         		proj_id_var int;
                 BEGIN
-          SELECT t2.project_id INTO proj_id_var FROM shared.messages t1 INNER JOIN public.conversations t2 ON t2.conversation_identifier = t1.conversation_identifier WHERE t1.id IN (NEW.message_id, OLD.message_id) AND t2.project_id = $project_id_var LIMIT 1;
+          SELECT t2.project_id INTO proj_id_var FROM shared.messages t1 INNER JOIN shared.conversations t2 ON t2.conversation_identifier = t1.conversation_identifier WHERE t1.id IN (NEW.message_id, OLD.message_id) AND t2.project_id = $project_id_var LIMIT 1;
                 IF(proj_id_var is NOT NULL AND proj_id_var = $project_id_var) THEN
                   IF (TG_OP = 'INSERT') THEN
                     INSERT INTO bucardo.$delta_table VALUES ($new);
@@ -3831,7 +3831,7 @@ FOR EACH ROW EXECUTE PROCEDURE bucardo.bucardo_delta_names_helper();
         	DECLARE
         		proj_id_var int;
                 BEGIN
-          SELECT t2.project_id INTO proj_id_var FROM shared.questions t1 INNER JOIN public.bots t2 ON t2.id = t1.bot_id WHERE t1.id IN (NEW.question_id, OLD.question_id) AND t2.project_id = $project_id_var LIMIT 1;
+          SELECT t2.project_id INTO proj_id_var FROM shared.questions t1 INNER JOIN shared.bots t2 ON t2.id = t1.bot_id WHERE t1.id IN (NEW.question_id, OLD.question_id) AND t2.project_id = $project_id_var LIMIT 1;
                 IF(proj_id_var IS NOT NULL AND proj_id_var = $project_id_var) THEN
                   IF (TG_OP = 'INSERT') THEN
                     INSERT INTO bucardo.$delta_table VALUES ($new);
@@ -3864,7 +3864,7 @@ FOR EACH ROW EXECUTE PROCEDURE bucardo.bucardo_delta_names_helper();
         DECLARE
           proj_id_var int;
               BEGIN
-        SELECT t2.project_id INTO proj_id_var FROM shared.people_identifiers t1 INNER JOIN public.people t2 ON t2.id = t1.person_id WHERE t1.id IN (NEW.people_identifier_id, OLD.people_identifier_id) AND t2.project_id = $project_id_var LIMIT 1;
+        SELECT t2.project_id INTO proj_id_var FROM shared.people_identifiers t1 INNER JOIN shared.people t2 ON t2.id = t1.person_id WHERE t1.id IN (NEW.people_identifier_id, OLD.people_identifier_id) AND t2.project_id = $project_id_var LIMIT 1;
               IF(proj_id_var IS NOT NULL AND proj_id_var = $project_id_var) THEN
                 IF (TG_OP = 'INSERT') THEN
                   INSERT INTO bucardo.$delta_table VALUES ($new);
